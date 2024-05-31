@@ -1,0 +1,145 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+
+const yearsOfExperience = new Date().getFullYear() - 2017;
+---
+
+<Layout title="Pablo Bianco - Portfolios">
+	<main class="flex flex-col items-center justify-center h-screen mx-[10%]">
+		<h1 class="text-4xl font-bold text-white mb-4">
+			Welcome to <span class="text-gradient">Pablo Bianco's</span> Portfolios
+		</h1>
+		<img
+			src="/profile_pic.jpg"
+			alt="Profile Picture"
+			class="mx-auto rounded-full w-32 h-32 mb-4"
+		/>
+		<p class="text-center text-gray-300">
+			Fullstack Developer with {yearsOfExperience} years of experience, Tech
+			Enthusiast, and a Lifelong Learner.
+		</p>
+		<section class="my-8">
+			<h2 class="text-2xl font-bold text-white mb-4">My Location</h2>
+			<p class="text-center text-gray-300">
+				I live in Sydney, Australia.
+			</p>
+		</section>
+		<section class="my-8">
+			<h2 class="text-2xl font-bold text-white mb-4">
+				Technologies I Use
+			</h2>
+			<ul class="flex justify-center space-x-4">
+				<li class="text-center text-gray-300">
+					<img
+						src="/icons/net.svg"
+						alt="Net"
+						class="w-6 h-6 mx-auto"
+					/>
+				</li>
+				<li class="text-center text-gray-300">
+					<img
+						src="/icons/angular.svg"
+						alt="Angular"
+						class="w-6 h-6 mx-auto"
+					/>
+				</li>
+				<li class="text-center text-gray-300">
+					<img
+						src="/icons/vue.svg"
+						alt="Vue"
+						class="w-6 h-6 mx-auto"
+					/>
+				</li>
+				<li class="text-center text-gray-300">
+					<img
+						src="/icons/aws.svg"
+						alt="aws"
+						class="w-6 h-6 mx-auto"
+					/>
+				</li>
+			</ul>
+		</section>
+		<section class="my-8">
+			<h2 class="text-2xl font-bold text-white mb-4">My Experience</h2>
+			<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+				<Card
+					company="Digital Village"
+					position="Sr. Fullstack Developer"
+					duration="Oct 2023 - Present"
+					description="As a member of the Developer Hub, I am involved in developing new client ideas and MVPs in a dynamic and innovative environment."
+				/>
+				<Card
+					company="Cloud(x)"
+					position="Sr. Fullstack Developer"
+					duration="Feb 2022 - Aug 2023"
+					description="Contributed to mission-critical projects in a nearshore software factory serving U.S. and Latin American clients."
+				/>
+				<Card
+					company="Vates"
+					position="Fullstack Developer .Net"
+					duration="Feb 2021 - Feb 2022"
+					description="Worked in an Argentinian software factory providing solutions globally."
+				/>
+				<Card
+					company="Novit"
+					position="Fullstack Developer .Net"
+					duration="Dec 2017 - Nov 2020"
+					description="Worked in an Argentinian software factory providing solutions globally."
+				/>
+				<Card
+					company="Baufest"
+					position="Jr. Fullstack Developer .Net"
+					duration="May 2017 - Nov 2017"
+					description="Worked in an Argentinian software factory providing solutions globally."
+				/>
+			</ul>
+		</section>
+		<section class="my-8">
+			<h2 class="text-2xl font-bold text-white mb-4">My Education</h2>
+			<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+				<Card
+					company="I.M.A.G.E. Campus"
+					position="Diploma in Video Game Design and Development"
+					duration="Dec 2020"
+					description="Studied the fundamentals of video game design and development."
+				/>
+			</ul>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	:root {
+		--text-gradient: linear-gradient(90deg, #ff00ff 0%, #ff0000 100%);
+		--background-color: #1f1f1f;
+		--text-color: #ffffff;
+	}
+	.text-gradient {
+		background: var(--text-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	body {
+		background-color: var(--background-color);
+		color: var(--text-color);
+	}
+</style>
+
+<style>
+	:root {
+		--text-gradient: linear-gradient(90deg, #ff00ff 0%, #ff0000 100%);
+		--text-gradient: linear-gradient(90deg, #ff00ff 0%, #ff0000 100%);
+		--background-color: #1f1f1f;
+		--text-color: #ffffff;
+	}
+	.text-gradient {
+		background: linear-gradient(90deg, #ff00ff 0%, #ff0000 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	body {
+		background-color: var(--background-color);
+		color: var(--text-color);
+	}
+</style>
