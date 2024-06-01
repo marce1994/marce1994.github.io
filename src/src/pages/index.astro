@@ -1,35 +1,42 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import workExperience from "../data/workExperience";
 
-const yearsOfExperience = new Date().getFullYear() - 2017;
+const startDate = new Date("2017-04-01");
+const currentDate = new Date();
+
+const monthsOfExperience =
+	(currentDate.getFullYear() - startDate.getFullYear()) * 12 +
+	(currentDate.getMonth() - startDate.getMonth());
+const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 ---
 
 <Layout title="Pablo Bianco - Portfolios">
-	<main class="flex flex-col items-center justify-center h-screen mx-[10%]">
-		<h1 class="text-4xl font-bold text-white mb-4">
-			Welcome to <span class="text-gradient">Pablo Bianco's</span> Portfolios
-		</h1>
-		<img
-			src="/profile_pic.jpg"
-			alt="Profile Picture"
-			class="mx-auto rounded-full w-32 h-32 mb-4"
-		/>
-		<p class="text-center text-gray-300">
-			Fullstack Developer with {yearsOfExperience} years of experience, Tech
-			Enthusiast, and a Lifelong Learner.
-		</p>
-		<section class="my-8">
-			<h2 class="text-2xl font-bold text-white mb-4">My Location</h2>
-			<p class="text-center text-gray-300">
-				I live in Sydney, Australia.
-			</p>
+	<main class="flex flex-col items-center px-6">
+		<section class="my-8 w-full">
+			<!-- work in progress text-->
+			<h>Work in progres....</h>
+			<div>
+				<h1 class="text-4xl font-bold text-white mb-4">
+					Welcome to <span class="text-gradient">Pablo Bianco's</span>
+					Portfolios
+				</h1>
+			</div>
+			<div>
+				<p class="text-gray-300">
+					I am a Sr. Fullstack Developer living in Sydney, Australia.
+					I have {yearsOfExperience} years of experience in software development.
+					I specialize in .Net, Angular, and Vue. I enjoy learning new
+					technologies and building innovative solutions.
+				</p>
+			</div>
 		</section>
-		<section class="my-8">
-			<h2 class="text-2xl font-bold text-white mb-4">
+		<section class="my-8 w-full">
+			<h2 class="text-xl font-bold text-white mb-4">
 				Technologies I Use
 			</h2>
-			<ul class="flex justify-center space-x-4">
+			<ul class="flex justify-normal sm:justify-center space-x-4">
 				<li class="text-center text-gray-300">
 					<img
 						src="/icons/net.svg"
@@ -60,49 +67,31 @@ const yearsOfExperience = new Date().getFullYear() - 2017;
 				</li>
 			</ul>
 		</section>
-		<section class="my-8">
-			<h2 class="text-2xl font-bold text-white mb-4">My Experience</h2>
+		<section class="my-8 w-full">
+			<h2 class="text-2xl font-bold text-white mb-4" id="my-experience">
+				My Experience
+			</h2>
 			<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-				<Card
-					company="Digital Village"
-					position="Sr. Fullstack Developer"
-					duration="Oct 2023 - Present"
-					description="As a member of the Developer Hub, I am involved in developing new client ideas and MVPs in a dynamic and innovative environment."
-				/>
-				<Card
-					company="Cloud(x)"
-					position="Sr. Fullstack Developer"
-					duration="Feb 2022 - Aug 2023"
-					description="Contributed to mission-critical projects in a nearshore software factory serving U.S. and Latin American clients."
-				/>
-				<Card
-					company="Vates"
-					position="Fullstack Developer .Net"
-					duration="Feb 2021 - Feb 2022"
-					description="Worked in an Argentinian software factory providing solutions globally."
-				/>
-				<Card
-					company="Novit"
-					position="Fullstack Developer .Net"
-					duration="Dec 2017 - Nov 2020"
-					description="Worked in an Argentinian software factory providing solutions globally."
-				/>
-				<Card
-					company="Baufest"
-					position="Jr. Fullstack Developer .Net"
-					duration="May 2017 - Nov 2017"
-					description="Worked in an Argentinian software factory providing solutions globally."
-				/>
+				{
+					workExperience.map((experience) => (
+						<Card
+							company={experience.company}
+							position={experience.position}
+							duration={experience.duration}
+							description={experience.description}
+						/>
+					))
+				}
 			</ul>
 		</section>
-		<section class="my-8">
+		<section class="my-8 w-full">
 			<h2 class="text-2xl font-bold text-white mb-4">My Education</h2>
 			<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 				<Card
 					company="I.M.A.G.E. Campus"
-					position="Diploma in Video Game Design and Development"
+					position="Diploma in Video Game Design and Development (3 years)"
 					duration="Dec 2020"
-					description="Studied the fundamentals of video game design and development."
+					description="During my time at I.M.A.G.E. Campus, I delved deeply into video game design and development, focusing on Unity3D, C++ game engine construction, design principles, storytelling, team management, and game physics. This immersive experience allowed me to blend creativity with technical expertise to create engaging and interactive gaming experiences."
 				/>
 			</ul>
 		</section>
@@ -111,30 +100,12 @@ const yearsOfExperience = new Date().getFullYear() - 2017;
 
 <style>
 	:root {
-		--text-gradient: linear-gradient(90deg, #ff00ff 0%, #ff0000 100%);
+		--text-gradient: linear-gradient(90deg, yellow 0%, red 100%);
 		--background-color: #1f1f1f;
 		--text-color: #ffffff;
 	}
 	.text-gradient {
 		background: var(--text-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-	body {
-		background-color: var(--background-color);
-		color: var(--text-color);
-	}
-</style>
-
-<style>
-	:root {
-		--text-gradient: linear-gradient(90deg, #ff00ff 0%, #ff0000 100%);
-		--text-gradient: linear-gradient(90deg, #ff00ff 0%, #ff0000 100%);
-		--background-color: #1f1f1f;
-		--text-color: #ffffff;
-	}
-	.text-gradient {
-		background: linear-gradient(90deg, #ff00ff 0%, #ff0000 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
