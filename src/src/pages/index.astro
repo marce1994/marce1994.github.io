@@ -2,6 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import workExperience from "../data/workExperience";
+import { getImage } from "astro:assets";
+import backgroundImage from "../assets/coding-background.jpg";
+const optimizedBackgroundImage = await getImage({ src: backgroundImage });
 
 const startDate = new Date("2017-04-01");
 const currentDate = new Date();
@@ -13,61 +16,62 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 ---
 
 <Layout title="Pablo Bianco - Portfolios">
-	<main class="flex flex-col items-center px-6">
-		<section class="my-8 w-full">
-			<!-- work in progress text-->
-			<h>Work in progres....</h>
-			<div>
-				<h1 class="text-4xl font-bold text-white mb-4">
-					Welcome to <span class="text-gradient">Pablo Bianco's</span>
-					Portfolios
+	<main class="flex flex-col items-center">
+		<div class="min-h-96 w-full relative">
+			<div
+				class="-z-10 absolute inset-0 bg-cover bg-center"
+				style={`background-image: url('${optimizedBackgroundImage.src}'); filter: brightness(0.5);`}
+			>
+			</div>
+			<div
+				class="px-8 h-96 w-full flex flex-col items-center justify-center"
+			>
+				<h1
+					class="text-2xl font-bold text-white mb-4 text-center"
+				>
+					Hi, this is
 				</h1>
-			</div>
-			<div>
-				<p class="text-gray-300">
-					I am a Sr. Fullstack Developer living in Sydney, Australia.
-					I have {yearsOfExperience} years of experience in software development.
-					I specialize in .Net, Angular, and Vue. I enjoy learning new
-					technologies and building innovative solutions.
+				<h1
+					class="text-4xl font-bold text-white mb-4 text-center text-gradient"
+				>
+					Pablo Bianco
+				</h1>
+				<p class="text-gray-300 font-bold shadow-lg mb-4 text-center">
+					Full stack developer living in Sydney, Australia
 				</p>
+				<ul class="flex justify-center space-x-4">
+					<li class="text-center text-gray-300">
+						<img
+							src="/icons/net.svg"
+							alt="Net"
+							class="w-8 h-8 mx-auto"
+						/>
+					</li>
+					<li class="text-center text-gray-300">
+						<img
+							src="/icons/angular.svg"
+							alt="Angular"
+							class="w-8 h-8 mx-auto"
+						/>
+					</li>
+					<li class="text-center text-gray-300">
+						<img
+							src="/icons/vue.svg"
+							alt="Vue"
+							class="w-8 h-8 mx-auto"
+						/>
+					</li>
+					<li class="text-center text-gray-300">
+						<img
+							src="/icons/aws.svg"
+							alt="aws"
+							class="w-8 h-8 mx-auto"
+						/>
+					</li>
+				</ul>
 			</div>
-		</section>
-		<section class="my-8 w-full">
-			<h2 class="text-xl font-bold text-white mb-4">
-				Technologies I Use
-			</h2>
-			<ul class="flex justify-normal sm:justify-center space-x-4">
-				<li class="text-center text-gray-300">
-					<img
-						src="/icons/net.svg"
-						alt="Net"
-						class="w-6 h-6 mx-auto"
-					/>
-				</li>
-				<li class="text-center text-gray-300">
-					<img
-						src="/icons/angular.svg"
-						alt="Angular"
-						class="w-6 h-6 mx-auto"
-					/>
-				</li>
-				<li class="text-center text-gray-300">
-					<img
-						src="/icons/vue.svg"
-						alt="Vue"
-						class="w-6 h-6 mx-auto"
-					/>
-				</li>
-				<li class="text-center text-gray-300">
-					<img
-						src="/icons/aws.svg"
-						alt="aws"
-						class="w-6 h-6 mx-auto"
-					/>
-				</li>
-			</ul>
-		</section>
-		<section class="my-8 w-full">
+		</div>
+		<section class="my-8 px-6 max-w-3xl">
 			<h2 class="text-2xl font-bold text-white mb-4" id="my-experience">
 				My Experience
 			</h2>
@@ -84,7 +88,7 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 				}
 			</ul>
 		</section>
-		<section class="my-8 w-full">
+		<section class="my-8 px-6 max-w-3xl">
 			<h2 class="text-2xl font-bold text-white mb-4">My Education</h2>
 			<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 				<Card
@@ -100,9 +104,8 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 
 <style>
 	:root {
-		--text-gradient: linear-gradient(90deg, yellow 0%, red 100%);
-		--background-color: #1f1f1f;
-		--text-color: #ffffff;
+		--text-gradient: linear-gradient(90deg, rgb(255, 157, 0) 0%, red 100%);
+
 	}
 	.text-gradient {
 		background: var(--text-gradient);
