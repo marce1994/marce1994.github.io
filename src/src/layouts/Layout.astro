@@ -21,10 +21,10 @@ const { title } = Astro.props;
 		></script>
 	</head>
 	<body>
-		<header class="fixed z-10 w-full bg-[color:transparent]">
+		<header class="z-10 w-full bg-[color:transparent]">
 			<nav class="border-gray-200 dark:bg-gray-900 dark:border-gray-700">
 				<div
-					class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+					class="max-w-screen-xl p-4 py-4 lg:py-8 flex flex-wrap items-center justify-between mx-auto"
 				>
 					<a
 						href="#"
@@ -36,14 +36,14 @@ const { title } = Astro.props;
 							alt="Flowbite Logo"
 						/> -->
 						<span
-							class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+							class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
 							>Pablo Bianco</span
 						>
 					</a>
 					<button
 						data-collapse-toggle="navbar-multi-level"
 						type="button"
-						class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden  focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+						class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
 						aria-controls="navbar-multi-level"
 						aria-expanded="false"
 					>
@@ -72,9 +72,16 @@ const { title } = Astro.props;
 						>
 							<li>
 								<a
-									href="#"
+									href="/"
 									class="block py-2 px-3 text-white focus:text-red-200 bg-[color:var(--background-color-secondary)] focus:bg-[color:var(--focus-color)] rounded md:bg-transparent md:p-0"
 									aria-current="page">Home</a
+								>
+							</li>
+							<li>
+								<a
+									href="/posts"
+									class="block py-2 px-3 text-white focus:text-red-200 bg-[color:var(--background-color-secondary)] focus:bg-[color:var(--focus-color)] rounded md:bg-transparent md:p-0"
+									aria-current="page">Posts</a
 								>
 							</li>
 						</ul>
@@ -83,33 +90,49 @@ const { title } = Astro.props;
 			</nav>
 		</header>
 		<slot />
-		<footer class="bg-[#262626] text-white">
-			<div class="grid grid-cols-2 gap-4 p-8">
-				<div>
-					<h3 class="text-lg font-bold">Contact Information</h3>
-					<p>Email: example@example.com</p>
-					<p>Phone: 123-456-7890</p>
+		<footer class="bg-[color:var(--background-color-secondary)] text-white">
+			<div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+				<div class="mt-8">
+					<p>TODO...</p>
+					<!-- <h2 class="text-2xl font-semibold mb-4">Subscribe to my newsletter</h2>
+					<form class="sm:flex">
+						<input
+							type="email"
+							name="email"
+							id="email"
+							class="w-full px-4 py-2 mb-4 sm:mb-0 sm:mr-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+							placeholder="Enter your email"
+							required
+						/>
+						<button
+							type="submit"
+							class="w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+						>
+							Subscribe
+						</button>
+					</form> -->
 				</div>
-				<div>
-					<h3 class="text-lg font-bold">Social Networks</h3>
-					<a href="https://twitter.com/example" class="block"
-						>Twitter</a
-					>
-					<a href="https://linkedin.com/in/example" class="block"
-						>LinkedIn</a
-					>
-					<a href="https://github.com/example" class="block">GitHub</a
-					>
+				<hr
+					class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
+				/>
+				<div class="sm:flex sm:items-center sm:justify-between">
+					<span
+						class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
+						>© 2024 Pablo Bianco. All Rights Reserved.
+					</span>
 				</div>
 			</div>
 		</footer>
 	</body>
 </html>
-
 <style>
 	:root {
 		--background-color: #1f1f1f;
 		--background-color-secondary: #2f2f2f;
 		--text-color: #ffffff;
+	}
+	body {
+		background-color: var(--background-color);
+		color: var(--text-color);
 	}
 </style>

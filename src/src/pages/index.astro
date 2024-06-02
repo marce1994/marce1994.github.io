@@ -26,9 +26,7 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 			<div
 				class="px-8 h-96 w-full flex flex-col items-center justify-center"
 			>
-				<h1
-					class="text-2xl font-bold text-white mb-4 text-center"
-				>
+				<h1 class="text-2xl font-bold text-white mb-4 text-center">
 					Hi, this is
 				</h1>
 				<h1
@@ -71,7 +69,7 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 				</ul>
 			</div>
 		</div>
-		<section class="my-8 px-6 max-w-3xl">
+		<section class="my-8 px-6 max-w-screen-xl p-4 py-6 lg:py-8">
 			<h2 class="text-2xl font-bold text-white mb-4" id="my-experience">
 				My Experience
 			</h2>
@@ -88,7 +86,7 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 				}
 			</ul>
 		</section>
-		<section class="my-8 px-6 max-w-3xl">
+		<section class="my-8 px-6 max-w-screen-xl p-4 py-6 lg:py-8">
 			<h2 class="text-2xl font-bold text-white mb-4">My Education</h2>
 			<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 				<Card
@@ -105,15 +103,11 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 <style>
 	:root {
 		--text-gradient: linear-gradient(90deg, rgb(255, 157, 0) 0%, red 100%);
-
 	}
 	.text-gradient {
 		background: var(--text-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
-	body {
-		background-color: var(--background-color);
-		color: var(--text-color);
-	}
+	
 </style>
