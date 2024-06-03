@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import workExperience from "../data/workExperience";
+import workExperience from "../data/experience.ts";
+import education from "../data/education.ts";
 import { getImage } from "astro:assets";
 import backgroundImage from "../assets/coding-background.jpg";
 const optimizedBackgroundImage = await getImage({ src: backgroundImage });
@@ -17,7 +18,7 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 
 <Layout title="Pablo Bianco - Portfolios">
 	<main class="flex flex-col items-center">
-		<div class="min-h-96 w-full relative">
+		<div class="w-full relative">
 			<div
 				class="-z-10 absolute inset-0 bg-cover bg-center"
 				style={`background-image: url('${optimizedBackgroundImage.src}'); filter: brightness(0.5);`}
@@ -70,17 +71,19 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 			</div>
 		</div>
 		<section class="my-8 px-6 max-w-screen-xl p-4 py-6 lg:py-8">
-			<h2 class="text-2xl font-bold text-white mb-4" id="my-experience">
+			<h2 class="text-2xl font-bold text-white mb-8" id="my-experience">
 				My Experience
 			</h2>
-			<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				{
 					workExperience.map((experience) => (
 						<Card
-							company={experience.company}
-							position={experience.position}
-							duration={experience.duration}
+							title={experience.company}
+							subtitle={experience.position}
+							date={experience.duration}
 							description={experience.description}
+							link={experience.learnMore}
+							image={experience.logo}
 						/>
 					))
 				}
@@ -88,13 +91,19 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 		</section>
 		<section class="my-8 px-6 max-w-screen-xl p-4 py-6 lg:py-8">
 			<h2 class="text-2xl font-bold text-white mb-4">My Education</h2>
-			<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-				<Card
-					company="I.M.A.G.E. Campus"
-					position="Diploma in Video Game Design and Development (3 years)"
-					duration="Dec 2020"
-					description="During my time at I.M.A.G.E. Campus, I delved deeply into video game design and development, focusing on Unity3D, C++ game engine construction, design principles, storytelling, team management, and game physics. This immersive experience allowed me to blend creativity with technical expertise to create engaging and interactive gaming experiences."
-				/>
+			<ul class="grid grid-cols-1 gap-4">
+				{
+					education.map((education) => (
+						<Card
+							title={education.university}
+							subtitle={education.title}
+							date={education.duration}
+							description={education.description}
+							link={education.learnMore}
+							image={education.logo}
+						/>
+					))
+				}
 			</ul>
 		</section>
 	</main>
@@ -109,5 +118,4 @@ const yearsOfExperience = Math.floor(monthsOfExperience / 12);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
-	
 </style>

@@ -21,14 +21,16 @@ const { Content } = await post.render();
 
 <!-- <Layout title={post.data.title} description={post.data.description}> -->
 <Layout title={post.data.title}>
-    <div class="mt-12 post mx-auto flex w-full max-w-prose flex-col gap-4">
-        <header role="presentation">
-            <h1 class="text-md">
-                {post.data.title} - {post.data.publishedAt}
-            </h1>
-            <p class="italic">{post.data.description}</p>
-        </header>
+    <main class="flex flex-col items-center">
+        <div class="mt-24 px-6 max-w-screen-xl">
+            <header role="presentation">
+                <h1 class="text-md">
+                    {post.data.title} - {post.data.publishedAt}
+                </h1>
+                <p class="italic">{post.data.description}</p>
+            </header>
 
-        <Content />
-    </div>
+            <Content />
+        </div>
+    </main>
 </Layout>

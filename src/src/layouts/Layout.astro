@@ -20,8 +20,8 @@ const { title } = Astro.props;
 			src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"
 		></script>
 	</head>
-	<body>
-		<header class="z-10 w-full bg-[color:transparent]">
+	<body class="relative">
+		<header class="absolute z-10 w-full bg-[color:transparent]">
 			<nav class="border-gray-200 dark:bg-gray-900 dark:border-gray-700">
 				<div
 					class="max-w-screen-xl p-4 py-4 lg:py-8 flex flex-wrap items-center justify-between mx-auto"
@@ -89,7 +89,9 @@ const { title } = Astro.props;
 				</div>
 			</nav>
 		</header>
-		<slot />
+		<main class="w-full min-h-screen">
+			<slot />
+		</main>
 		<footer class="bg-[color:var(--background-color-secondary)] text-white">
 			<div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
 				<div class="mt-8">
