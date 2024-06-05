@@ -12,8 +12,11 @@ const { title, subtitle, date, description, link, image } =
 	Astro.props as CardProps;
 ---
 
-<li class="mb-4 h-full">
-	<article class="h-full flex row gap-6 rounded border-gray-700 border p-6">
+<li class="relative mb-4 h-full">
+	<article
+		card-element
+		class="border-gradient h-full flex row gap-6 rounded border-gray-700 border p-6"
+	>
 		{
 			image && (
 				<div class="min-w-16 flex justify-center">
