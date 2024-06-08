@@ -1,12 +1,14 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
-
 import mdx from "@astrojs/mdx";
+
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://marce1994.github.io',
-  integrations: [tailwind(), mdx()], // TODO: Will I use mdx?
+  integrations: [tailwind(), mdx(), sitemap()],
+  // TODO: Will I use mdx?
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
@@ -16,7 +18,7 @@ export default defineConfig({
       // See note below for using dual light/dark themes
       themes: {
         light: 'github-light',
-        dark: 'github-dark',
+        dark: 'github-dark'
       },
       // Add custom languages
       // Note: Shiki has countless langs built-in, including .astro!
@@ -26,7 +28,7 @@ export default defineConfig({
       wrap: true,
       // Add custom transformers: https://shiki.style/guide/transformers
       // Find common transformers: https://shiki.style/packages/transformers
-      transformers: [],
-    },
-  },
+      transformers: []
+    }
+  }
 });
